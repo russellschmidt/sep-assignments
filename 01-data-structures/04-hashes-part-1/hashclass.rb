@@ -6,33 +6,31 @@ class HashClass
   end
 
   def []=(key, value)
-    # create 
     items_index = index(key, self.size)
     items_value = @items[items_index]
-    if items_value == nil
-      @items[items_index] = value
-      @keys << key
-      puts "#{items_index}: #{@items[items_index]}"
-    elsif
-      @items[items_index] == value
-    else
-      resize
+    if @items[items_index] == value
+      return nil
     end
+    if @items[items_index] != nil && @items[items_index] != value
+      resize
+      # should this be a recursive call in case we have 2 or more consecutive collisions
+    end
+    @items[items_index] = value
+    @keys << key
+    puts "#{items_index}: #{@items[items_index]}"
   end
-
 
   def [](key)
     # lookup
-    value_index = index(key, self.size)
-    @items[value_index]    
+    array_index = index(key, self.size)
+    @items[array_index]    
   end
 
   def resize
-    temp_size = self.size
     temp = @items.map{|v| v}
-    @items = Array.new(temp_size * 2)
+    @items = Array.new(self.size * 2)
     @keys.each do |k| 
-      @items[index(k, temp_size * 2)] = temp[index(k, temp_size)]
+      @items[index(k, self.size)] = temp[index(k, temp.count)]
     end
   end
 
