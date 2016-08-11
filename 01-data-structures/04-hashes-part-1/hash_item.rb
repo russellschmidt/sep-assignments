@@ -7,11 +7,4 @@ class HashItem
   	self.value = value
   end
 
-  # def get_value
-  # 	self.value
-  # end
-
-  # def get_key
-  # 	self.key
-  # end
 end
