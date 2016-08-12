@@ -11,3 +11,11 @@ check our array
   - call the original add_element function to do a check in case we need a second or third resize
 
 
+Problem 1:  
+      hash = HashClass.new(1)
+      hash["key"] = "value"
+      expect(hash.size).to eq 1
+      hash["key"] = "different"
+      expect(hash.size).to eq 2
+
+This generates an infinite loop. It updates #1, and then keeps updating #1 over and over again, doubling the size of the array until it is enormous.
