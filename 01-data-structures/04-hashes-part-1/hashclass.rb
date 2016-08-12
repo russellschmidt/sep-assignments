@@ -21,7 +21,6 @@ class HashClass
       puts "hash"
       puts new_hash.key
       puts new_hash.value
-      return
     elsif @items[new_index].key == key
       if @items[new_index].value != value
         resize
