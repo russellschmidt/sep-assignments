@@ -1,0 +1,13 @@
+
+make new hash
+make new index for new hash
+
+check our array
+- if the new index is empty, add our hash at that index
+- if the new index has a value that equals our hash value, stop
+- if the new index has a different value, we...
+  - resize the array
+  - try to put our hash back into the array
+  - call the original add_element function to do a check in case we need a second or third resize
+
+
