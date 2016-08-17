@@ -19,7 +19,7 @@ class HashClass
       return value
     else
       resize
-      add_element(key, value)
+      # add_element(key, value)
     end
   end
 
