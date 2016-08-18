@@ -75,4 +75,12 @@ class OpenAddressing
       add_element(x.key, x.value) unless x == nil
     end
   end
+
+  # This method prints the state of the HashClass to the console.
+  def print_hash
+    load_factor = @items.compact.length / self.size
+    puts "Load Factor: #{load_factor}"
+    @items.inspect
+
+  end
 end

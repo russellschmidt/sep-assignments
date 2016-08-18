@@ -106,4 +106,31 @@ class LinkedList
       target_node
     end 
   end
+
+  # This method prints the state of the HashClass to the console.
+  def print_hash
+    element_counter = 0
+    index_counter = 0
+
+    non_nil_array = @items.compact
+    non_nil_array.each do |x|
+      if x.next = nil
+        counter += 1
+      else
+        while x != nil
+          counter += 1
+          x = x.next
+        end
+      end
+    end
+    load_factor = number_of_items / self.size  
+
+    @items.each do |element|
+      puts " ----- "
+      puts "Index: #{index_counter}"
+      puts "Key: #{element.key}, Value: #{element.value}"
+      puts " ----- "
+    end
+    puts "Load factor: "
+  end
 end
