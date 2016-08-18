@@ -78,7 +78,7 @@ class OpenAddressing
 
   # This method prints the state of the HashClass to the console.
   def print_hash
-    load_factor = @items.compact.length / self.size
+    load_factor = @items.compact.length.to_f / self.size.to_f
     puts "Load Factor: #{load_factor}"
     @items.inspect
 
