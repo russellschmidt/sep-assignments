@@ -1,0 +1,10 @@
+Answers to Question 2
+
+1. Simple doubling of the size of the array might be a poor idea because we would make our divisor in the modulus operation an even number. Our hash function relies on the remainder of (the numeric representation of the key) divided by (the total number of elements in the hash array). The underlying algorithm for optimizing the size of the array and our hash function will work best if we can fill our array by avoiding collisions. We want to avoid collisions because increasing the size of and then copying elements into our array is costly. Prime numbers are ideal candidates, as the only numbers that divide into them cleanly are themselves and one. This minimizes the chances of collision due to the result of the modulus operation simply being a factor of the set size.
+
+This can be better shown with a numerical example. If we had an array of size 5 that was doubled in size to 10, we might very likely have two keys that evaluate to 2 when pased through the hash function. Let's say we had two keys which evaluated to 112 and 222 respectively. They would both result in a remainer of 2 (112 % 10 = 2 and 222 % 10 = 2). This will cause another collision and doubling to 20. Now our array is 4 times as large as it ought to be, resulting in a lot of empty elements within our array (fragmentation), which also represents wasted memory allocation as we reserve blocks of memory that may never be used. Also, as mentioned before, the act of doubling and copying is itself relatively costly and we want to avoid that as much as possible.
+
+
+Questions
+
+How would I resize the list if I were not tracking the key values? Is there some mathematical formula I can do to tease out what the original was, or at least find the remainder of and transform that, so I do not have to store keys in a separate array.
