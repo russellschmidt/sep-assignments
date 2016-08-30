@@ -1,0 +1,32 @@
+Pickles:open_addressing russellschmidt$ irb
+2.3.0 :001 > load 'open_addressing.rb'
+ => true
+2.3.0 :002 > star_wars_movies = OpenAddressing.new(6)
+ => #<OpenAddressing:0x007f816a166690 @items=[nil, nil, nil, nil, nil, nil]>
+2.3.0 :003 > star_wars_movies["Star Wars: The Phantom Menace"] = "Number One"
+ => "Number One"
+2.3.0 :004 > star_wars_movies["Star Wars: Attack of the Clones"] = "Number Two"
+ => "Number Two"
+2.3.0 :005 > star_wars_movies["Star Wars: Revenge of the Sith"] = "Number Three"
+ => "Number Three"
+2.3.0 :006 > star_wars_movies["Star Wars: A New Hope"] = "Number Four"
+ => "Number Four"
+2.3.0 :007 > star_wars_movies["Star Wars: The Empire Strikes Back"] = "Number Five"
+ => "Number Five"
+2.3.0 :008 > star_wars_movies["Star Wars: Return of the Jedi"] = "Number Six"
+ => "Number Six"
+2.3.0 :009 > star_wars_movies.print_hash
+NoMethodError: undefined method `to_float' for 6:Fixnum
+	from open_addressing.rb:81:in `print_hash'
+	from (irb):9
+	from /Users/russellschmidt/.rvm/rubies/ruby-2.3.0/bin/irb:11:in `<main>'
+2.3.0 :010 > star_wars_movies.print_hash
+NoMethodError: undefined method `to_float' for 6:Fixnum
+	from open_addressing.rb:81:in `print_hash'
+	from (irb):10
+	from /Users/russellschmidt/.rvm/rubies/ruby-2.3.0/bin/irb:11:in `<main>'
+2.3.0 :011 > load 'open_addressing.rb'
+ => true
+2.3.0 :012 > star_wars_movies.print_hash
+Load Factor: 0.015625
+ => "[nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, #<Node:0x007f816a02aab0 @key=\"Star Wars: Revenge of the Sith\", @value=\"Number Three\", @next=nil>, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, #<Node:0x007f816a02aa60 @key=\"Star Wars: Attack of the Clones\", @value=\"Number Two\", @next=nil>, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, #<Node:0x007f816a02aa88 @key=\"Star Wars: A New Hope\", @value=\"Number Four\", @next=nil>, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, #<Node:0x007f816a02a970 @key=\"Star Wars: Return of the Jedi\", @value=\"Number Six\", @next=nil>, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, #<Node:0x007f816a02aa38 @key=\"Star Wars: The Phantom Menace\", @value=\"Number One\", @next=nil>, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, #<Node:0x007f816a02aa10 @key=\"Star Wars: The Empire Strikes Back\", @value=\"Number Five\", @next=nil>, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil]"
