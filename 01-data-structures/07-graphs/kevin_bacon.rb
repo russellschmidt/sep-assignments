@@ -32,11 +32,13 @@ class KevinBacon
 			movie_array << movie
 			if movie.count > 6
 				return false
-			actor.each do |a|
-				if a.name == 'Kevin Bacon'
-					return movie_array
-				elsif a.name != actor.name #avoid a loop
-					find_kevin_bacon(actor)
+			else
+				actor.each do |a|
+					if a.name == 'Kevin Bacon'
+						return movie_array
+					elsif a.name != actor.name #avoid a loop
+						find_kevin_bacon(actor)
+					end
 				end
 			end
 		end
@@ -62,11 +64,13 @@ class KevinBacon
 			movie_array << movie
 			if movie.count > 6
 				false
-			actor.each do |a|
-				if a.name == 'Kevin Bacon'
-					winning_attempts << movie_array
-				elsif a.name != actor.name #avoid a loop
-					find_kevin_bacon(actor)
+			else
+				actor.each do |a|
+					if a.name == 'Kevin Bacon'
+						winning_attempts << movie_array
+					elsif a.name != actor.name #avoid a loop
+						find_kevin_bacon(actor)
+					end
 				end
 			end
 		end
