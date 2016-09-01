@@ -35,7 +35,7 @@ class KevinBacon
 			actor.each do |a|
 				if a.name == 'Kevin Bacon'
 					return movie_array
-				else
+				elsif a.name != actor.name #avoid a loop
 					find_kevin_bacon(actor)
 				end
 			end
@@ -65,7 +65,7 @@ class KevinBacon
 			actor.each do |a|
 				if a.name == 'Kevin Bacon'
 					winning_attempts << movie_array
-				else
+				elsif a.name != actor.name #avoid a loop
 					find_kevin_bacon(actor)
 				end
 			end
