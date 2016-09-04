@@ -1,0 +1,14 @@
+1. Three Collision Strategies not mentioned here
+
+From the helpful https://en.wikipedia.org/wiki/Hash_table#Collision_resolution
+1.1 Coalesced hashing - this is similar in concept to Separate Chaining, in that in the event of collision, the original item and the new colliding item are linked with a pointer. Unlike Separate Chaining, the new item is placed within the array in an open slot (pushed to end of the array, growing the array by 1 element). The original item now has this location stored in that item's data as a link to it for future retrieval of the colliding item.
+
+1.2 Robin Hood hashing - Instead of simply double hashing, RH will track whether the second hash is larger than the first. If so, the existing element at the first hash index result is moved. This supposedly prevents worst-case-scenario search times.
+
+1.3 Hopscotch hashing - This technique combines Cuckoo Hashing and Linear Probing. When a collision occurs, Linear Probing is used to find an open slot, but only to a point. If an open element is not found within a few array elements k, Hopscotch shifts nearby elements to an open stretch of the array at least k*2 elements away and copies the new element into the newly made nil element. Basically, newcomers get the element that the oldtimers gave up, within a fixed small distance k from the target index. Only if moving the element fails do we resize.
+
+
+2. Creating my own collision strategy
+I would modify the Open Addressing Linear Probing model by, on collision, comparing the calculated index to the length of the array. If the index was in the bottom half (indices 0 through 50% of length), I would iterate through the entire array to locate an open slot from the start rather than from the calculated index.
+
+My reasoning is that on average, collisions will occur at least 50% of the time in the higher index numbered half of the array. This can create excessively long arrays within the hash if the bottom 50% of the array happens to be relatively full and a lot of resizes occur. This is not an unlikely outcome due to statistical clustering of results.
