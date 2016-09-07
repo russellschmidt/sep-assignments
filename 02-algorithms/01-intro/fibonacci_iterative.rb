@@ -4,8 +4,8 @@ def fib(n)
 	
 	(0..n-1).each do |x|
 		x = fib_0
-		fib_0 = fib_1
-		fib_1 = x + fib_0
+		fib_1 = fib_0
+		fib_1 = fib_1 + fib_0
 	end
 
 	fib_1
