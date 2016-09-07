@@ -1,0 +1,74 @@
+Algorithms: Seaching
+
+1. Given an alphabetically sorted collection, it would take 7 iterations to find the letter "G" in a linear search, assuming we start at collection[0] which is "A", and are using the English alphabet where G is the 7th letter.
+
+2. Given an alphabetically sorted collection, it should take 5 iterations to find the letter "G" in a binary search.
+
+iteration 1
+A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+lo											m													hi
+
+iteration 2
+A B C D E F G H I J K L
+lo				m						hi
+
+iteration 3
+G H I J K L
+lo  m     hi
+
+iteration 4
+G H I
+l m h
+
+iteration 5
+G
+
+3. Calculate fib(10), fib(11) and fib(12) by hand
+
+fib(0): 			0
+fib(1):				1
+fib(2):				1 = 0 + 1
+fib(3):				2 = 1 + 1
+fib(4):				3 = 2 + 1
+fib(5):				5 = 3 + 2
+fib(6):				8 = 5 + 3
+fib(7):				13 = 8 + 5
+fib(8):				21 = 13 + 8
+fib(9):				34 = 21 + 13
+fib(10):			55 = 34 + 21
+fib(11):			89 = 55 + 34
+fib(12):			144 = 89 + 55
+
+Pickles:02-searching russellschmidt$ ruby benchmark.rb
+Rehearsal -------------------------------------------------------
+Recursive Fibonacci 6765
+  0.000000   0.000000   0.000000 (  0.001625)
+Iterative Fibonacci 6765
+  0.000000   0.000000   0.000000 (  0.000014)
+---------------------------------------------- total: 0.000000sec
+
+                          user     system      total        real
+Recursive Fibonacci 6765
+  0.000000   0.000000   0.000000 (  0.001638)
+Iterative Fibonacci 6765
+  0.000000   0.000000   0.000000 (  0.000013)
+Rehearsal -------------------------------------------------------
+Recursive Fibonacci 144
+  0.000000   0.000000   0.000000 (  0.000050)
+Iterative Fibonacci 144
+  0.000000   0.000000   0.000000 (  0.000012)
+---------------------------------------------- total: 0.000000sec
+
+                          user     system      total        real
+Recursive Fibonacci 144
+  0.000000   0.000000   0.000000 (  0.000050)
+Iterative Fibonacci 144
+  0.000000   0.000000   0.000000 (  0.000012)
+
+Iterative Search takes <1% of the time (1/126th) that recursion does for fib(20). For smaller numbers the gap is less extreme, with the iterative approach taking ~25% of the time as recursion for fib(12).
+
+
+SEARCH QUESTIONS
+1. If I had an unsorted list, I would have to use linear search, since binary search does not work for unsorted lists. I would use an iterative solution because with a million recursive calls, I would probably (a) crash my computer with a million copies of the function sitting in memory in a worst case scenario and (b) iterative search is going to be much, much faster. Iterative search does not need to save the state of the prior search in memory, as recursive approaches do.
+
+2. If I had a sorted list of a million items, I would use binary search, since it is dramatically faster than linear search. I would again use an iterative approach because recursive operations are memory-intensive since each function call needs to be resident in memory, though in the case of binary search, there would not be nearly so many function calls present in memory as we would see with linear search. I think there would be 40 function calls worst case (target not present in the collection) using the formula 2*log_2(1,000,000 - 1)
