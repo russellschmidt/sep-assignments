@@ -1,0 +1,112 @@
+Pseudocode examples
+
+==========================================================
+
+1. Determing what to order at a restaurant given the restrictive diet I am on.
+
+1.1 Scan the menu, mentally creating a list of items that are primarily meat, fruit and vegetables. 
+1.2 Eliminate from your list any items with grains and starch including wheat, rice, corn, quinoa, potato.
+1.3 Eliminate items that contain more than one nightshade (i.e. tomato, eggplant)
+1.4 Eliminate items with more than one high glycemic fruit (tropical fruit such as bananas, watermelon)
+1.5 Elimate items with spicy peppers (i.e. jalapeños, banana peppers)
+1.6 Eliminate items with dairy and eggs
+1.7 Eliminate items with nuts 
+1.8 If your list now has nothing on it, ask if you can have a house salad with olive oil and vinaigrette, no tomato or croutons. 
+1.8a If they can accommodate that order, order that salad.
+1.8b Else, explain your restrictions and accept the ordering advice of the waiter, filtering it against 1.2-1.7
+1.9 Else, refilter your streamlined list, ranking items by quantity of food offered
+1.9a Then, rank items by price, lowest to highest
+1.9b Last, rank items by difficulty in preparation, starting with fish, then steak, then other mammals, then bird. 
+1.9c If any item is number one in two or more rankings, order that.
+1.9d Otherwise, order the chicken with sauce on the side
+1.10 If the meal comes with fries, attempt to substitute for sweet potato fries
+1.11 For a beverage, determine the time of day
+1.11a If after 5pm, order red wine and water
+1.11b Else if there is unsweetened iced tea, order unsweetened iced tea
+1.11c Else order water
+
+==========================================================
+
+2. How to find my car in the pay lot where I rent a space.
+
+2.1 Walk to the garage I use at 530 S. Spring Street.
+2.2 Check on the Notes app on my phone to see where I last parked by looking for most recent date and retrieving the floor number written
+2.3 Walk inside the entrance to the garage 
+2.4 Walk towards elevator on the right hand side
+2.5a If there is no line to the elevator
+2.5a1 Press up button
+2.5a2 Wait for elevator
+2.5a3a If Elevator doors open AND direction indicator is UP
+2.5a3a1 Enter elevator
+2.5a3b Else wait GO TO 2.5a2
+2.5a4 Press floor button corresponding to floor on 2.2
+2.5b Else if there is a line
+2.5b1a If the up button has not been pushed, push up button
+2.5b2 Wait in line
+2.5b3 If the elevator doors open, make room for people to exit
+2.5b4 If the elevator direction indicator is UP AND doors are open
+2.5b4a Enter the elevator once it has been emptied of people
+2.5b4b GOTO 2.5a4
+2.5b1 Else GOTO 2.5b2
+2.6 Stand quietly in elevator, staring at floor indicator
+2.7 Wait unless elevator has stopped at floor indicated in 2.2
+2.8 Once doors open, exit elevator at floor found on 2.2
+2.9a If number of floor in Notes in 2.2 is > current floor, walk up ramp
+2.9b Else walk down ramp
+2.10 Click car keys to trigger beep
+2.11a If car beep heard
+2.11a1 Walk towards beep
+2.12a2 GOTO 2.10 until adjacent to car
+2.11b Else if car not found or beep not heard 
+2.11b1 Keep trying every several steps until reach next floor up
+2.11b2 If reach next floor, check 2.2 again to confirm on correct floor.
+2.11b2a If not on correct floor, GOTO 2.3
+2.11b2b Else return to elevator location in 2.8
+2.11b2b1 Try other direction
+2.11b2b1a If we tried 2.9a, GOTO 2.9b
+2.11b2b1b Else GOTO 2.9a 
+2.12 Once adjacent to car, click unlock button on keys
+2.12a If car unlock sounds, enter car. DONE
+2.12b Else you are at the wrong Mini Cooper, again. GOTO 2.10
+
+==========================================================
+
+3. How to make an invitation list for a wedding, excluding destination weddings
+
+3.1 Create a spreadsheet
+3.2 List everyone in your life who you would possibly want to hang out with
+3.2a List all couples on a single line, if they are a couple
+3.2b Ask your respective parents for their guest list, if parents are invited AND you care about their friends and your extended family
+3.3 Refer to your budget and location for a maximum capacity. The smaller of the two numbers is your Maximum Head Count. 
+3.3a Multiply your Maximum Head count by 1.25. This is your new Maximum Head Count to account for people that cannot make the wedding.
+3.4 Total all of the people in 3.2
+3.5 If Spreadsheet Total < Maximum Head Count, congrats! Now go get their addresses
+3.6 Else Time to Prune your list. Pruning consists of:
+3.6a Move all people/couples that are of your generation AND that married while you were friends/family AND did not invite you to their wedding to a new list (List Z)
+3.6b Delete all people/couples either bride OR groom had sex with.
+3.6c Move all people/couples that you have not hung out with in 2 years OR find generally annoying/unpleasant to List Z. Exceptions available for family and college roommates that cleared both items 3.6a, 3.6b
+3.6d Categorize guests into Family A, Family B, Friends A, Friends B, where A-class are people you feel you Must have as guests and B are people you Should or would Like to have present.
+3.6e If Family A plus Friends A Equal to 80-100% of Maximum Head Count, Congrats! You are done. Now go get their addresses.
+3.6f Else if Family A plus Family A greater than Maximum Head Count, discard Family B and Friend B
+3.6f1 Move friends you have not hung out with in 1 year to List Z
+3.6f2 Move relatives you haven't seen in 10 years to List Z
+3.6f3 If A-list friends and family total is still greater than Maximum Head Count, consider a new venue.
+3.6f4 If a new venue is out of the question, each bride and groom force ranks their guests by desirability.
+3.6f4a Guest Overage equals Maximum Head Count minus Guest List Total
+3.6f4b Groom Total is the number of groom's guests
+3.6f4c Bride Total is the number of bride's guests
+3.6f4d Groom Total divided by Guest List Total is Groom Share
+3.6f4e Bride Total divided by Guest List Total is Bride Share
+3.6f4f Bride and Groom multiply Guest Overage by their Respective Share
+3.6f4g Bride and Groom delete their Respective Share of guests from the bottom of the force rank lists in 3.6f4
+3.6f4h Congrats, you have hit your mark. Now go get their addresses!
+3.6g Else we need to trim Family B and Friend B
+3.6g1 Bride and Groom force rank their guests by desirability.
+3.6g1a Guest Overage equals Maximum Head Count minus Guest List Total
+3.6g1b Groom Total is the number of groom's guests
+3.6g1c Bride Total is the number of bride's guests
+3.6g1d Groom Total divided by Guest List Total is Groom Share
+3.6g1e Bride Total divided by Guest List Total is Bride Share
+3.6g1f Bride and Groom multiply Guest Overage by their Respective Share
+3.6g1g Bride and Groom delete their Respective Share of guests from the bottom of the force rank lists in 3.6g1
+3.6g1h Congrats, you have hit your mark. Now go get their addresses!
