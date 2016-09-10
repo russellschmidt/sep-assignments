@@ -13,8 +13,6 @@ def quick_sort(collection)
 		end
 		collection.compact!
 
-		# split the array
-		# recursively call quick_sort on the subarray
 		pivot_index = collection.index(pivot)
 		left = quick_sort(collection[0...pivot_index])
 		right = quick_sort(collection[(pivot_index + 1)...collection.length])
