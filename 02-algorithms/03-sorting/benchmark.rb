@@ -1,3 +1,8 @@
+require 'benchmark'
+require_relative 'bucket-sort'
+require_relative 'heap-sort'
+require_relative 'quick-sort'
+
 def insertion_sort(unsorted_array)
 	sorted_array = [unsorted_array.delete_at(0)]
 
@@ -66,7 +71,7 @@ def merge_sort(collection)
 	if collection.length <= 1
 		collection
 	else
-		mid = (collection / 2).floor
+		mid = (collection.length / 2).floor
 		left = merge_sort(collection[0..mid-1])
 		right = merge_sort(collection[mid..collection.length])
 		merge(left, right)
@@ -85,4 +90,46 @@ def merge(left, right)
 	end
 end
 
+##################################################################
+arr = %W[Q W E R T Y U I O P A S D F G H J K L Z X C V B N M]
+
+arr2, arr3 = [], []
+
+1000.times {
+	arr2 << "#{["A".."Z"].sample}#{["A".."Z"].sample}#{["A".."Z"].sample}#{["A".."Z"].sample}#{["A".."Z"].sample}"
+}
+
+50.times {
+	arr3 << "#{["A".."Z"].sample}#{["A".."Z"].sample}#{["A".."Z"].sample}#{["A".."Z"].sample}#{["A".."Z"].sample}"
+}
+
+Benchmark.bmbm do |x|
+	x.report("insertion sort") { insertion_sort(arr) }
+	x.report("selection sort") { insertion_sort(arr) }
+	x.report("bubble sort") { bubble_sort(arr) }
+	x.report("merge sort") { merge_sort(arr) }
+	x.report("quick sort") { quick_sort(arr) }
+	x.report("heap sort") { heap_sort(arr) }
+	x.report("bucket sort") { bucket_sort(arr) }
+end
+
+Benchmark.bmbm do |x|
+	x.report("insertion sort") { insertion_sort(arr2) }
+	x.report("selection sort") { insertion_sort(arr2) }
+	x.report("bubble sort") { bubble_sort(arr2) }
+	x.report("merge sort") { merge_sort(arr2) }
+	x.report("quick sort") { quick_sort(arr2) }
+	x.report("heap sort") { heap_sort(arr2) }
+	x.report("bucket sort") { bucket_sort(arr2) }
+end
+
+Benchmark.bmbm do |x|
+	x.report("insertion sort") { insertion_sort(arr3) }
+	x.report("selection sort") { insertion_sort(arr3) }
+	x.report("bubble sort") { bubble_sort(arr3) }
+	x.report("merge sort") { merge_sort(arr3) }
+	x.report("quick sort") { quick_sort(arr3) }
+	x.report("heap sort") { heap_sort(arr3) }
+	x.report("bucket sort") { bucket_sort(arr3) }
+end
 

@@ -22,9 +22,9 @@ def quick_sort(collection)
 end
 
 
-arr = ["E","C","A","B","F","G","D"]
-puts " before "
-puts arr
-puts " after "
-puts quick_sort(arr)
-puts " -- "
+# arr = ["E","C","A","B","F","G","D"]
+# puts " before "
+# puts arr
+# puts " after "
+# puts quick_sort(arr)
+# puts " -- "

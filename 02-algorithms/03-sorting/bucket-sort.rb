@@ -10,7 +10,6 @@ def bucket_sort(collection)
 	bucketSTU = []
 	bucketVWXYZ = []
 
-
 	# assign to buckets
 	for element in collection
 		if element < "D" 
@@ -63,9 +62,9 @@ def selection_sort(collection)
 end
 
 
-arr = %W(Q W E R T Y U I O P A S D F G H J K L Z X C V B N M)
-puts " before "
-puts arr
-puts " after "
-puts bucket_sort(arr)
-puts " -- "
+# arr = %W(Q W E R T Y U I O P A S D F G H J K L Z X C V B N M)
+# puts " before "
+# puts arr
+# puts " after "
+# puts bucket_sort(arr)
+# puts " -- "
