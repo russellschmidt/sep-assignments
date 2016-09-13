@@ -5,6 +5,6 @@ def input_to_iterations(collection)
 	end
 end
 
-collection = [1, 2, 3, 4, 5, 10, 25, 50, 100]
+collection = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 input_to_iterations(collection)
