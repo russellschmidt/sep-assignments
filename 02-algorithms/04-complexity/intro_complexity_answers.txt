@@ -8,15 +8,15 @@ Complexity
 
 4. A bounded case scenario for Binary Search could be an evenly distributed (balanced) Binary Search Tree with the root being the median value for the collection. The bounded case scenario is some scenario between the Big-O and Big-Ω (worst case and best case) scenarios that can be constrained between a lower and higher bound where the equation for the higher bound is some multiple of the equation for the lower bound.
 
-5. See attached .png
+5. See 'graph.png'
 
-6. 
+6. Infinity
 
-7.
+7. O(2^n)
 
-8.
+8. See attached 'input-to-iterations.rb'
 
-9.
+9. See 'graph2.png'
 
 10. O(n)
 
