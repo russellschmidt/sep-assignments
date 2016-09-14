@@ -1,0 +1,25 @@
+Complexity
+
+1. An algorithm that has Big O of 1, O(1), is similar to Star Trek's Enterprise traveling between the stars via Wormhole - just about instantaneous. An algorithm that has a Big O of 2^n (O(2^n)) is the equivalent of the same Federation starship traveling under Impulse power for intra-solar-system cruising.
+
+2. The best case scenario for Binary Search is that the sought element is the root element of the binary search tree. No matter how large the data set becomes, the search finds the target in one operation.
+
+3. The worst case scenario for Binary Search is that the root element is either the smallest or largest item in the data set, the data set is sorted when the Binary Search Tree was created, and the target element is the opposite extreme of the root (i.e. if the root is smallest item in the collection, the target is the biggest item in the collection, and vice versa). Binary search then is as slow as linear search, as it has to check every single element in the collection once before it finds the target.
+
+4. A bounded case scenario for Binary Search could be an evenly distributed (balanced) Binary Search Tree with the root being the median value for the collection. The bounded case scenario is some scenario between the Big-O and Big-Ω (worst case and best case) scenarios that can be constrained between a lower and higher bound where the equation for the higher bound is some multiple of the equation for the lower bound.
+
+5. See 'graph.png'
+
+6. Infinity
+
+7. O(2^n)
+
+8. See attached 'input-to-iterations.rb'
+
+9. See 'graph2.png'
+
+10. O(n)
+
+11. Ω(lg n)
+
+12. θ(1)
