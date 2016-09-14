@@ -1,0 +1,76 @@
+Answers
+
+Benchmarks
+
+Rehearsal --------------------------------------------------
+insertion sort   0.000000   0.000000   0.000000 (  0.000044)
+selection sort   0.000000   0.000000   0.000000 (  0.000028)
+bubble sort      0.000000   0.000000   0.000000 (  0.000019)
+merge sort       0.000000   0.000000   0.000000 (  0.000245)
+quick sort       0.000000   0.000000   0.000000 (  0.000419)
+heap sort        0.000000   0.000000   0.000000 (  0.000442)
+bucket sort      0.000000   0.000000   0.000000 (  0.000318)
+----------------------------------------- total: 0.000000sec
+
+                     user     system      total        real
+insertion sort   0.000000   0.000000   0.000000 (  0.000027)
+selection sort   0.000000   0.000000   0.000000 (  0.000023)
+bubble sort      0.000000   0.000000   0.000000 (  0.000014)
+merge sort       0.000000   0.000000   0.000000 (  0.000132)
+quick sort       0.000000   0.000000   0.000000 (  0.000325)
+heap sort        0.000000   0.000000   0.000000 (  0.000360)
+bucket sort      0.000000   0.000000   0.000000 (  0.000282)
+
+
+Really Cool Bar Chart
+
+
+ms
+.400
+.390
+.380
+.370
+.360		X
+.350		X
+.340		X
+.330		X			x
+.320		X			X
+.310		X			X
+.300		X			X
+.290		X			X
+.280		X			X				X
+.270		X			X				X
+.260		X			X				X
+.250		X			X				X
+.240		X			X				X
+.230		X			X				X
+.220		X			X				X
+.210		X			X				X
+.200		X			X				X
+.190		X			X				X
+.180		X			X				X
+.170		X			X				X
+.160		X			X				X
+.150		X			X				X
+.140		X			X				X
+.130		X			X				X
+.120		X			X				X
+.110		X			X				X				X
+.100		X			X				X				X
+.090		X			X				X				X
+.080		X			X				X				X
+.070		X			X				X				X
+.060		X			X				X				X
+.050		X			X				X				X
+.040		X			X				X				X
+.030		X			X				X				X					X						x
+.020		X			X				X				X					X						X					x
+.010		X			X				X				X					X						X					X
+------------------------------------------------------------------
+			heap	quick		bucket	merge		insertion		selection		bubble
+
+
+QUESTION 5
+Based on the chart and the results, I think that overall, you can see my implementation of various sort algorithms is likely the culprit as to why certain sort algorithms are faster than others - the three I created the code for are notably slower than the ones where Bloc provided the code.
+
+However, in general, the sorting algorithms that are iterating just a couple of times over an array in a single function call (insertion, selection, bubble) might be faster for small data sets where the speed of array operations operating within a single contiguous block of memory enjoy an advantage over algorithms where you have multiple function calls per iteration and/or multiple arrays being referenced. Thus the increased complexity of these multi-array and/or multi-function implementations makes them relatively slower for these smaller data sets.
