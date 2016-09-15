@@ -1,0 +1,39 @@
+Determining Complexity.
+
+1-Q. 
+What's the Big-O of the following algorithm? Submit your work and reasoning with your solution.
+
+goodbye_world.rb
+def goodbye_world(n)
+ puts "Goodbye World! #{n}"
+end
+
+1-A.
+Big-O: O(1)
+
+In a worst case scenario, of n equalling infinity (while ignoring the practical processing and capacity limitations that would impose on real-world computing systems), this single statement in the function will run once. Since no matter how large the collection grows, the operations are completed in a fixed number of operations, this algorithm is of constant time complexity.
+
+
+2-Q.
+What's the Big-O of the following algorithm? Submit your work and reasoning with your solution.
+
+find_largest.rb
+def find_largest(collection)
+ largest = collection[0]
+ collection.length.times do |i|
+   if collection[i] >= largest
+     largest = collection[i]
+   end
+ end
+ largest
+end
+
+2-A.
+Big-O: O(n)
+
+A worst case scenario for this search algorithm is that the largest item is last in the collection. In that case, this algorithm will require checking every single element in the collection and comparing that element to the target before it returns the largest item. We can say that this algorithm is of linear time complexity as the number of operations increases 1:1 with an increase in the size of the collection being searched in a worst case scenario.
+
+
+3-Q.
+
+3-A.
