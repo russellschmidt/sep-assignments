@@ -31,9 +31,44 @@ end
 2-A.
 Big-O: O(n)
 
-A worst case scenario for this search algorithm is that the largest item is last in the collection. In that case, this algorithm will require checking every single element in the collection and comparing that element to the target before it returns the largest item. We can say that this algorithm is of linear time complexity as the number of operations increases 1:1 with an increase in the size of the collection being searched in a worst case scenario.
+A worst case scenario for this search algorithm is that the largest item is last in the collection (note that in a best case scenario, this algorithm would still check every item in the collection). In that case, this algorithm will require checking every single element in the collection and comparing that element to the target before it returns the largest item.  We can say that this algorithm is of linear time complexity as the number of operations increases 1:1 with an increase in the size of the collection being searched in a worst case scenario. Note that we discard the operations of setting and returning single variables once for purposes of determining complexity.
 
 
 3-Q.
+What's the Big-O of the following algorithm? Submit your work and reasoning with your solution.
+
+find_largest_2D_array.rb
+def find_largest(collection)
+ largest = collection[0][0]
+ collection.length.times do |i|
+   subcollection = collection[i]
+   subcollection.length.times do |i|
+     if subcollection[i] >= largest
+       largest = subcollection[i]
+     end
+   end
+ end
+ largest
+end
 
 3-A.
+Big-O: O(n)
+
+This algorithm is identical to the one presented in question 2, with the added wrinkle that the collection is stored as a 2D or nested array. The algorithm iterates through each column one element at a time before advancing to the next row array element and that element's column (array) elements. The Big Oh and Big Omega are of (n), as one operation is executed for every item in the collection.
+
+
+4-Q.
+What's the Big-O of the following algorithm? Submit your work and reasoning with your solution.
+
+numbers_recurive.rb
+def numbers(n)
+ if (n == 0)
+   return 0
+ elsif (n == 1)
+   return 1
+ else
+   return numbers(n-1) + numbers(n-2)
+ end
+end
+
+4-A.
