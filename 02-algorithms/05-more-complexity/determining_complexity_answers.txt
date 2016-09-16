@@ -216,16 +216,21 @@ def sort(collection, from=0, to=nil)
  collection
 end
 
-6-A.
+6-A. O(n^2)
 
 Let's test this out by hand to make a table to see if we can tease out the algorithmic complexity.
 
-For a collection of length 1,
+For a collection of length 1, we have a single operation, as `from >= to' causes a return for all single element arrays.
 
-n		ops
-1		1
-2		
-3
-4
-5
+For n=2, say an array=[2,1], the while loop runs once, swapping the min and max, and then the function is called recurvisely and exits as from == to. The function returns a sorted list in two operations. 
 
+For n=4, array=[4,3,2,1], the while loop runs and we get [1,3,2,1] on the first iteration, then iterates twice more. After exiting, the pivot gets added back in to give us [1,3,2,4]. Then we call quick_sort (typo: should be sort()?) recursively on a subarray one element smaller than the original collection, so: [1,3,2]. 
+
+In this loop, the while loop executes twice and exits before another recursive call on [1,3]. The while loop is again called, and does not do anything, exits, and calls the function recursively again with [1] as the subarray. This causes a return and we exit.
+
+Then there is another recursive call, now on [3,2,4]. The while loop runs, once doing nothing, but on the second pass gives us [2,2,4] before we exit the loop. The array is set to [2,3,4] and hits the first recursive call, passing in [1,2,3,4] from index 2 to index 2, which causes a return. Now we execute the second recursive call, passing in [1,2,3,4], from index 
+
+n 		ops
+1			1
+2			2
+4			
