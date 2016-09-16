@@ -11,7 +11,7 @@ end
 1-A.
 Big-O: O(1)
 
-In a worst case scenario, of n equalling infinity (while ignoring the practical processing and capacity limitations that would impose on real-world computing systems), this single statement in the function will run once. Since no matter how large the collection grows, the operations are completed in a fixed number of operations, this algorithm is of constant time complexity.
+In a worst case scenario, of n = infinity (while ignoring the practical processing and capacity limitations that would impose on real-world computing systems), this single statement in the function will run once. Since no matter how large the collection grows, the algorithm is completed in a fixed number of operations, this algorithm is of constant time complexity.
 
 ¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯
 
@@ -32,7 +32,7 @@ end
 2-A.
 Big-O: O(n)
 
-A worst case scenario for this search algorithm is that the largest item is last in the collection (note that in a best case scenario, this algorithm would still check every item in the collection). In that case, this algorithm will require checking every single element in the collection and comparing that element to the target before it returns the largest item.  We can say that this algorithm is of linear time complexity as the number of operations increases 1:1 with an increase in the size of the collection being searched in a worst case scenario. Note that we discard the operations of setting and returning single variables once for purposes of determining complexity.
+A worst case scenario for this search algorithm is that the largest item is last in the collection (note that in a best case scenario, this algorithm would still check every item in the collection, or put another way, Big-Oh = Big-Sigma). In that case, this algorithm will require checking every single element in the collection and comparing that element to the target, before at the end returning the largest item held in variable 'largest'.  We can say that this algorithm is of linear time complexity as the number of operations increases 1:1 with an increase in the size of the collection being searched in a worst case scenario. Note that we discard the operations of setting and returning single variables once for purposes of determining complexity.
 
 ¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯
 
@@ -56,7 +56,10 @@ end
 3-A.
 Big-O: O(n)
 
-This algorithm is identical to the one presented in question 2, with the added wrinkle that the collection is stored as a 2D or nested array. The total collection size n is equal to rows x columns. The algorithm is to iterate over every element in a column before incrementing the row by one and iterating through that column and so on. So, this is no more work than if this was a single 1D array of length (row x column), and is a Big-O of (n).
+This algorithm is identical to the one presented in question 2, with the added wrinkle that the collection is stored as a 2D or nested array. The total collection size n is equal to rows x columns. The algorithm is to iterate over every element in a column once before incrementing the row by one and iterating through that column and so on. So, this is no more work than if this was a single 1D array of length (row x column), and so is a Big-O of (n). 
+
+If n was 4 arranged 2x2, operations would be 4. col[0][0], col[0][1], col[1][0], col[1][1].
+If n was 9, arranged 3x3, operations would be 9. col[0][0], [0][1], [0][2], [1][0]..., [2]
 
 ¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯
 
@@ -140,14 +143,79 @@ def iterative(n)
  num2
 end
 
-5-A.
+5-A. O(n)
 
-Well, well, well. My good friend Fibonacci is back. This time we are calculating Fibonacci iteratively instead of recursively. 
+Well, well, well. My good friend Fibonacci is back. This time we are calculating Fibonacci iteratively instead of recursively. We know from the benchmarks a bit back that iterative was far faster than recursive.
 
+Let's try and do this by hand first.
 
+n 		ops
+0			1
+1			1
+2			2
+3			3
+4			4
+5			5
+
+This is an algorithm of linear complexity, as this table shows that the number of operations increases at the same rate as size of the collection n.
 
 ¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯
 
 6-Q.
+What's the Big-O of the following algorithm? Submit your work and reasoning with your solution.
+
+sort.rb
+def sort(collection, from=0, to=nil)
+ if to == nil
+   # Sort the whole collection, by default
+   to = collection.count - 1
+ end
+
+ if from >= to
+   # Done sorting
+   return
+ end
+
+ # Take a pivot value, at the far left
+ pivot = collection[from]
+
+ # Min and Max pointers
+ min = from
+ max = to
+
+ # Current free slot
+ free = min
+
+ while min < max
+   if free == min # Evaluate collection[max]
+     if collection[max] <= pivot # Smaller than pivot, must move
+       collection[free] = collection[max]
+       min += 1
+       free = max
+     else
+       max -= 1
+     end
+   elsif free == max # Evaluate collection[min]
+     if collection[min] >= pivot # Bigger than pivot, must move
+       collection[free] = collection[min]
+       max -= 1
+       free = min
+     else
+       min += 1
+     end
+   else
+     raise "Inconsistent state"
+   end
+ end
+
+ collection[free] = pivot
+
+ quick_sort collection, from, free - 1
+ quick_sort collection, free + 1, to
+
+ collection
+end
 
 6-A.
+
+
