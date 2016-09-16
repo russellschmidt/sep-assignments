@@ -13,6 +13,7 @@ Big-O: O(1)
 
 In a worst case scenario, of n equalling infinity (while ignoring the practical processing and capacity limitations that would impose on real-world computing systems), this single statement in the function will run once. Since no matter how large the collection grows, the operations are completed in a fixed number of operations, this algorithm is of constant time complexity.
 
+¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯
 
 2-Q.
 What's the Big-O of the following algorithm? Submit your work and reasoning with your solution.
@@ -33,6 +34,7 @@ Big-O: O(n)
 
 A worst case scenario for this search algorithm is that the largest item is last in the collection (note that in a best case scenario, this algorithm would still check every item in the collection). In that case, this algorithm will require checking every single element in the collection and comparing that element to the target before it returns the largest item.  We can say that this algorithm is of linear time complexity as the number of operations increases 1:1 with an increase in the size of the collection being searched in a worst case scenario. Note that we discard the operations of setting and returning single variables once for purposes of determining complexity.
 
+¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯
 
 3-Q.
 What's the Big-O of the following algorithm? Submit your work and reasoning with your solution.
@@ -54,8 +56,9 @@ end
 3-A.
 Big-O: O(n)
 
-This algorithm is identical to the one presented in question 2, with the added wrinkle that the collection is stored as a 2D or nested array. The algorithm iterates through each column one element at a time before advancing to the next row array element and that element's column (array) elements. The Big Oh and Big Omega are of (n), as one operation is executed for every item in the collection.
+This algorithm is identical to the one presented in question 2, with the added wrinkle that the collection is stored as a 2D or nested array. The total collection size n is equal to rows x columns. The algorithm is to iterate over every element in a column before incrementing the row by one and iterating through that column and so on. So, this is no more work than if this was a single 1D array of length (row x column), and is a Big-O of (n).
 
+¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯
 
 4-Q.
 What's the Big-O of the following algorithm? Submit your work and reasoning with your solution.
@@ -71,4 +74,80 @@ def numbers(n)
  end
 end
 
-4-A.
+4-A. Big-O(2^n)
+
+While the answer looks deceptively like n^2 to n=10, at larger numbers n, the number of operations increases vastly more rapidly than the square of n. I counted the number of operations, charted it, and saw that the exponential complexity seems to fit this algorithm best. At n=30, the exponential rate is 407 times bigger than the calculated operations but this is far closer of an answer than the next closest n^2 which was 3,000 times smaller.
+
+How I solved:
+
+First, I did a few by hand.
+
+For n = 0, the program executes 1 time, returning 1.
+n = 1, the program also executes 1 time, returning 1. 
+n = 2, the program executes 3 times, first hitting the else statement, then executing once for n-1 and again for n-2, returning 1.
+n = 3, the program hits the else first, then runs twice, once for n = 3-1 and once for n=3-2. Now 3-1 resolves to two, which means it hits the else statement and then runs twice more, for a total of 5 operations.
+n = 4, the program fires once, hits the else, and causes two executions of n=4-1 and n=4-2. When n = 3, we have two more executions of n=2 and n=1, where that n=2 triggers two more executions of code where n=1 and n=0. n=4-2 resolves to n=2, which will cause two additional code executions. This is a total of 9 executions of code.
+n = 5, we hit an else, We execute twice, on n=4 and 3. For the n=4 branch, we execute twice again for n=3 and n=2.  For n=3, we execute twice more for n=2 and n=1, and twice more again for n=2. Back to the original n=2, we execute twice there as well. For the original n=3, we execute twice to get n=2 and n=1, and twice more for n=2's results of n=1 and n=0. This is a total of 15 operations for n=5.
+
+After n=5, the math I was doing by hand was getting out of hand (pause for laughter-gasm) so I rewrote the method (see: fibonacci-recursive.rb) to tally the operations. I went 3 for 3 on the ones I also calculated by hand so I am confident in my methods. And the output is:
+
+5 operations for n=3
+9 operations for n=4
+15 operations for n=5
+25 operations for n=6
+41 operations for n=7
+67 operations for n=8
+109 operations for n=9
+177 operations for n=10
+21891 operations for n=20
+2692537 operations for n=30
+
+Made into a chart of sorts, I am running with 2^n (exponential) as the best descriptor of Big-Oh of this algorithm.
+
+n 	op 			n^2			2^n   n!
+0		1				1				2			1
+1		1				1				2			1
+2		3				4				4			2		
+3		5				9				8			6
+4		9				16			16		24
+5		15			25			32		120
+6		25			36			64		720
+7		41			49			128		5040
+8		67			64			256		40320
+9		81			81			512		362880
+10	177			100			1024	3628800
+20	21891		400			1.05m 2.4x10^8
+30  2.7m		900			1.1b	2.6x10^32
+
+¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯
+
+5-Q. 
+What's the Big-O of the following algorithm? Submit your work and reasoning with your solution.
+
+numbers_iterative.rb
+def iterative(n)
+ num1 = 0
+ num2 = 1
+
+ i = 0
+ while i < n-1
+   tmp = num1 + num2
+   num1 = num2
+   num2 = tmp
+   i+=1
+ end
+
+ num2
+end
+
+5-A.
+
+Well, well, well. My good friend Fibonacci is back. This time we are calculating Fibonacci iteratively instead of recursively. 
+
+
+
+¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯
+
+6-Q.
+
+6-A.
