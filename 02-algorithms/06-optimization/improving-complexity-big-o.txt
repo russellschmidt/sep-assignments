@@ -6,7 +6,12 @@ A true worst case scenario is that I have n arrays, all of size 1. Thus the comb
 
 The next iterative step is to proceed item by item through the unsorted array of length n-1 (we deleted the first element) and do a linear search on the sorted array. Since the array is reverse sorted, we have to iterate over the entire sorted array each time. Because the sorted array length approaches the unsorted array length over time, I would say that this second interation is n/2 times to reflect that at first this array is quite short.
 
-I would guess that the formula then for the worst case scenario algorithmic complexity is n + n * (n/2), or n^2/2 + n.  As n approaches infinity, we drop the n^1 and the 1/2 constant, and say this has a Big-Oh of n-squared.
+I would guess that the formula then for the worst case scenario algorithmic complexity is n + n * (n/2), or n^2/2 + n - 1.  As n approaches infinity, we drop the immaterial (n - 1) and the 1/2 constant, and say this has a Big-Oh of n-squared.
 
-2.
- 
+
+2. The Big-Oh is O(n log n)
+
+In this implementation, I swapped out the linear-esque sorting algorithm for merge sort. We know that merge sort is n log n, and we also know from problem 1 that our worst case scenario is n-1 array addition. This gives us an equation of nlogn + n - 1. But as n approaches infinity, we know that n - 1 becomes unimportant so say that we have an algorithmic complexity of nlogn.
+
+
+3.
