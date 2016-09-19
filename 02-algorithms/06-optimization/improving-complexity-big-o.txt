@@ -1,0 +1,3 @@
+Answers
+
+1.  The Big-Oh of the optimized ruby code 
