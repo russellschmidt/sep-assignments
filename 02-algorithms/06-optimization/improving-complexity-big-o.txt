@@ -1,3 +1,12 @@
 Answers
 
-1.  The Big-Oh of the optimized ruby code 
+1.  The Big-Oh of the optimized ruby code is O(n^2)
+
+A true worst case scenario is that I have n arrays, all of size 1. Thus the combining exercise would take n-1 operations to add them all together into one unsorted array. The unsorted array in the worst case scenario is also in reverse order.
+
+The next iterative step is to proceed item by item through the unsorted array of length n-1 (we deleted the first element) and do a linear search on the sorted array. Since the array is reverse sorted, we have to iterate over the entire sorted array each time. Because the sorted array length approaches the unsorted array length over time, I would say that this second interation is n/2 times to reflect that at first this array is quite short.
+
+I would guess that the formula then for the worst case scenario algorithmic complexity is n + n * (n/2), or n^2/2 + n.  As n approaches infinity, we drop the n^1 and the 1/2 constant, and say this has a Big-Oh of n-squared.
+
+2.
+ 
