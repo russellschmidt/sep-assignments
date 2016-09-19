@@ -28,6 +28,10 @@ def poorly_written_ruby(*arrays)
 end
 
 
+#
+# ANSWER
+#
+
 
 def optimized_but_still_bad_ruby(*arrays)
   combined_array = []
@@ -39,20 +43,17 @@ def optimized_but_still_bad_ruby(*arrays)
   # no reason to randomly grab the last item in unsorted arrays, thus requiring a length check
   sorted_array = [combined_array.delete_at(0)]
 
+  # get rid of the while loop and i and length lookups
   for val in combined_array
-    i = 0
-    inserted? = false
-    while i < sorted_array.length
-      # eliminate the equality check, break
-      if val < sorted_array[i]
-        sorted_array.insert(i, val)
+    for sortedVal in sorted_array
+      inserted? = false
+      if val < sortedVal
+        sorted_array.insert(sorted_array.index(sortedVal), val)
         inserted? = true
-      # eliminate the elsif conditional, break
       end
-      i+=1
       sorted_array << val unless inserted?
     end
   end
-  
+
   sorted_array
 end

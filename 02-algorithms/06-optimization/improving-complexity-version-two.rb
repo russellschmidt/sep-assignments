@@ -28,6 +28,11 @@ def poorly_written_ruby(*arrays)
 end
 
 
+#
+# ANSWER
+#
+
+
 def time_complexity_simplified_ruby(*arrays)
   combined_array = []
   arrays.each do |array|

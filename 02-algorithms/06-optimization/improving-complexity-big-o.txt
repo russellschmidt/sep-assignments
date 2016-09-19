@@ -2,9 +2,9 @@ Answers
 
 1.  The Big-Oh of the optimized ruby code is O(n^2)
 
-A true worst case scenario is that I have n arrays, all of size 1. Thus the combining exercise would take n-1 operations to add them all together into one unsorted array. The unsorted array in the worst case scenario is also in reverse order.
+A true worst case scenario is that I have n arrays, all of size 1. Thus the combining exercise would take n-1 operations to add them all together into one unsorted array. The unsorted array in a truly worst case scenario is also in reverse order of what I want - so here, descending order.
 
-The next iterative step is to proceed item by item through the unsorted array of length n-1 (we deleted the first element) and do a linear search on the sorted array. Since the array is reverse sorted, we have to iterate over the entire sorted array each time. Because the sorted array length approaches the unsorted array length over time, I would say that this second interation is n/2 times to reflect that at first this array is quite short.
+The next iterative step is to proceed item by item through the unsorted array (combined_array) of length n-1 (we deleted the first element) and do a linear search on the sorted_array. Since the combined_array is reverse sorted, we have to iterate over the entire sorted_array each time. Because the sorted_array length approaches the unsorted array length over time, I would say that this second interation is n/2 times to reflect the average length of this array for purposes of counting iterations.
 
 I would guess that the formula then for the worst case scenario algorithmic complexity is n + n * (n/2), or n^2/2 + n - 1.  As n approaches infinity, we drop the immaterial (n - 1) and the 1/2 constant, and say this has a Big-Oh of n-squared.
 
@@ -14,4 +14,10 @@ I would guess that the formula then for the worst case scenario algorithmic comp
 In this implementation, I swapped out the linear-esque sorting algorithm for merge sort. We know that merge sort is n log n, and we also know from problem 1 that our worst case scenario is n-1 array addition. This gives us an equation of nlogn + n - 1. But as n approaches infinity, we know that n - 1 becomes unimportant so say that we have an algorithmic complexity of nlogn.
 
 
-3.
+3. The Big-Oh is O(n^2)
+
+In this answer, I attempted to save space by using a single array for both the unsorted collection and the sorted collection. I did this by tracking the length of the sorted portion of the array, and incrementing that end-of-array marker with each insert. I also used the flatten!() method when making the array of arrays which I believe saves no space at all over the original implementation but was fun to use.
+
+I am using the same algorithm as in my answer to question 1. First, we combine all of the arrays into a single array, which worst case could take n operations for n arrays of length 1.
+
+Next, we have the main loops. We still have to iterate over the full unsorted array n, though we are also sorting and iterating over the front of the list at the same time. Because that sorted portion of the list starts small and grows to n, we could use the average length of n/2 to come up with a Big-Oh of n*n/2 + n, which reduces to O(n^2).
