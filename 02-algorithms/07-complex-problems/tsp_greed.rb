@@ -4,67 +4,43 @@ require_relative 'location'
 # accepts a Location object as a starting point
 # outputs list of locations in order of visitation
 # 
-# def rusty_nearest_neighbor(location)
-# 	until location.visited
-# 		neighbors = location.neighbors
-# 		next_city = neighbors[0]
+def greedy_neighbor(location)
+	puts "start at: #{location.name}"
+	puts " --- "
+	until location.visited
+		neighbors = location.neighbors
+		nearest_neighbor = neighbors[0]   #what if we already visited the nearest neighbor - we return to it!
 
-# 		for neighbor in neighbors
-# 			# if neighbor.distance > next_city.distance
-# 			# 	next_city = neighbor
-# 			# end
-# 			puts neighbor
-# 		end
+		for neighbor in neighbors
+			if nearest_neighbor[:city].visited
+				nearest_neighbor = neighbor
+			end
 
-# 		location.visited = true
-# 		location = next_city
-# 	end
-# end
-
-
-# def output_nearest_neighbors
-# 	happytown = Location.new('Happy Town', 
-# 		[{name: 'Doodles', distance: 100}, 
-# 			{name: 'Murdersewer', distance: 200}, 
-# 			{name: 'Shangri-la', distance: 10000}
-# 		])
-# 	doodles = Location.new('Doodles', 
-# 		[{name: 'Happy Town', distance: 100}, 
-# 			{name: 'Murdersewer', distance: 150}, 
-# 			{name: 'Shangri-la', distance: 20000}])
-# 	murdersewer = Location.new('Murdersewer', 
-# 		[{name: 'Doodles', distance: 150}, 
-# 			{name: 'Happy Town', distance: 200}, 
-# 			{name: 'Shangri-la', distance: 10}])
-# 	shangrila = Location.new('Shangri-la', 
-# 		[{name: 'Doodles', distance: 20000}, 
-# 			{name: 'Murdersewer', distance: 10}, 
-# 			{name: 'Happy Town', distance: 10000}])
-
-# 	puts rusty_nearest_neighbor(happytown)
-# 	puts rusty_nearest_neighbor(doodles)
-# 	puts rusty_nearest_neighbor(murdersewer)
-# 	puts rusty_nearest_neighbor(shangrila)
-# end
-
-
-# 
-# Ruby implementation of the Greedy Methodology from Asst 7
-def nearest_neighbor(graph_of_cities, current_city)
-	while not current_city.visited
-		neighbor_cities = current_city.neighbors
-		next_city = neighbor_cities[0]
-
-		for current_neighbor in neighbor_cities
-			if current_neighbor.distance < next_city.distance
-				next_city = current_neighbor
+			unless neighbor[:city].visited
+				if neighbor[:distance] < nearest_neighbor[:distance]
+					nearest_neighbor = neighbor
+				end
 			end
 		end
 
-		current_city.visited = true
-		current_city = next_city
+		puts "next city is:"
+		puts nearest_neighbor[:city].name
+
+
+		location.visited = true
+		location = nearest_neighbor[:city]
 	end
 end
 
 
-# output_nearest_neighbors
+cityA = Location.new("City A")
+cityB = Location.new("City B")
+cityC = Location.new("City C")
+cityD = Location.new("City D")
+
+cityA.neighbors = [{city: cityB, distance: 2}, {city: cityC, distance: 3}, {city: cityD, distance: 11}]
+cityB.neighbors = [{city: cityA, distance: 2}, {city: cityC, distance: 4}, {city: cityD, distance: 10}]
+cityC.neighbors = [{city: cityB, distance: 4}, {city: cityA, distance: 3}, {city: cityD, distance: 9}]
+cityD.neighbors = [{city: cityB, distance: 10}, {city: cityC, distance: 9}, {city: cityA, distance: 11}]
+
+greedy_neighbor(cityA)
