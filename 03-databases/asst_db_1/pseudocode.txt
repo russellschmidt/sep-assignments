@@ -1,0 +1,59 @@
+Pseudocode
+
+1. Remove Duplicates in a query response
+
+unique_title = post.title.uniq
+
+SELECT DISTINCT title FROM post; 
+
+
+2. Filter records using inequalities, pattern matching, ranges and boolean logic
+
+users = user.id.find(>2)
+losers = user.email.contains('aol.com')
+posts = post.title.between("A", "M")
+comments = comments.where(body.contains('gourd') OR user_id >= 2)
+
+SELECT * FROM user WHERE id > 2;
+SELECT * FROM user WHERE email LIKE '%aol.com';
+SELECT * FROM post WHERE title BETWEEN 'A' AND 'M';
+SELECT * FROM comment WHERE body LIKE '%gourd%' OR user_id >= 2;
+
+
+3. Sort records in a particular order
+
+posting_user_ids = post.user_id.ascending
+
+SELECT * FROM post ORDER BY user_id ASC;
+
+
+4. Limit the number of records returned
+
+user_ids = post.where(user_id > 1).limit(10)
+
+SELECT * FROM post WHERE user_id > 1 LIMIT 10;
+
+
+5. Group records into sections
+
+popular_post_ids = comment.group_by(count)
+
+SELECT post_id, COUNT(*) FROM comment GROUP BY post_id;
+
+
+6. Perform Calculations using aggregate functions 
+
+post_words = post.average(wordcount)
+
+SELECT AVG(wordcount) FROM post;
+
+
+7. Join tables using cross join, inner join and outer join
+
+cross_join_post_comment_user = join(post.body, comment.body, user.name)
+inner_join_user = post.join.where(user_id: comment.user.id)
+outer_join = post.leftjoin.where(comment.user_id)
+
+SELECT post.body, comment.body, user.name FROM post, comment, user;
+SELECT * FROM post JOIN user ON post.user_id = user.id;
+SELECT * FROM post LEFT JOIN comment ON post.user_id = comment.user_id;
